@@ -1,2 +1,2 @@
 def random_pieces():
-    return None
+    return "BBRKRQNN"
