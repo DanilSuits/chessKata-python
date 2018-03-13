@@ -1,3 +1,5 @@
+from chesskata import core
+import random
+
 def random_pieces():
-    from chesskata import board
-    return board.random_pieces()
+    return core.random_pieces(random)
