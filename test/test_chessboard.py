@@ -1,10 +1,12 @@
 import unittest
 
-from chesskata import board
-
 class RandomBoardTestCase(unittest.TestCase):
+    def test_imperative_shell(self):
+        from chesskata import shell as system_under_test
+        self.sut_satisifies_specification(system_under_test)
+        
     def test_random_board(self):
-        system_under_test = board
+        from chesskata import board as system_under_test
         self.sut_satisifies_specification(system_under_test)
 
     def sut_satisifies_specification(self, system_under_test):
