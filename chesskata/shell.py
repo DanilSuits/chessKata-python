@@ -1,2 +1,3 @@
 def random_pieces():
-    return None
+    from chesskata import board
+    return board.random_pieces()
