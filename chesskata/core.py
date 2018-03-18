@@ -3,6 +3,4 @@ def random_pieces(random):
     return fixed_pieces(index)
 
 def fixed_pieces(index):
-    if (1 == index ):
-        return "BRBKRQNN"
     return "BBRKRQNN"
