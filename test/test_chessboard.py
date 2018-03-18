@@ -8,6 +8,30 @@ class MockRandom:
         return self.seed
 
 class RandomBoardTestCase(unittest.TestCase):
+    def test_different_seeds_give_different_boards(self):
+        from chesskata import core as system_under_test
+        self.sut_different_seeds_give_different_boards(system_under_test)
+
+    def sut_different_seeds_give_different_boards(self, system_under_test):
+        import random
+        samples = set()
+        for seed in random.sample(range(0,960), 2):
+            pieces = system_under_test.random_pieces(MockRandom(seed))
+            samples.add(pieces)
+
+        self.assertEqual(len(samples), 2)
+
+    def test_all_seeds_give_different_boards(self):
+        from chesskata import core as system_under_test
+        self.sut_all_seeds_give_different_boards(system_under_test)
+
+    def sut_all_seeds_give_different_boards(self, system_under_test):
+        samples = set()
+        for seed in range(0,960):
+            pieces = system_under_test.random_pieces(MockRandom(seed))
+            samples.add(pieces)
+        self.assertEqual(len(samples), 960)
+
     def test_core_with_examples(self):
         from chesskata import core as system_under_test
         self.sut_matches_all_examples(system_under_test)
