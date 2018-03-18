@@ -1,5 +1,12 @@
 import unittest
 
+class MockRandom:
+    def __init__(self, seed):
+        self.seed = seed
+
+    def randrange(self, *_):
+        return self.seed
+
 class RandomBoardTestCase(unittest.TestCase):
     def test_imperative_shell(self):
         from chesskata import shell as system_under_test
@@ -8,6 +15,15 @@ class RandomBoardTestCase(unittest.TestCase):
     def test_random_board(self):
         from chesskata import board as system_under_test
         self.sut_satisifies_specification(system_under_test)
+
+    def test_functional_core_all_seeds(self):
+        from chesskata import core as system_under_test
+        self.sut_satisifies_specification_for_all_seeds(system_under_test)
+
+    def sut_satisifies_specification_for_all_seeds(self, system_under_test):
+        for seed in range(0,960):
+            pieces = system_under_test.random_pieces(MockRandom(seed))
+            self.pieces_satisfy_specification(pieces)
 
     def sut_satisifies_specification(self, system_under_test):
         pieces = system_under_test.random_pieces()
@@ -41,11 +57,11 @@ class RandomBoardTestCase(unittest.TestCase):
         an odd number of files away from the first"""
         first_position = pieces.find("B")
         second_position = pieces.rfind("B")
-        self.check_opposite_colors(first_position, second_position)
+        self.check_opposite_colors(first_position, second_position, pieces)
 
-    def check_opposite_colors(self, first_position, second_position):
+    def check_opposite_colors(self, first_position, second_position, pieces):
         distance = second_position - first_position
-        self.assertEqual(distance % 2, 1)
+        self.assertEqual(distance % 2, 1, "Bishops are on the same color: " + pieces)
 
     def has_king_between_rooks(self, pieces):
         first_rook = pieces.find("R")
