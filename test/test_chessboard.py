@@ -8,6 +8,18 @@ class MockRandom:
         return self.seed
 
 class RandomBoardTestCase(unittest.TestCase):
+    def test_core_with_examples(self):
+        from chesskata import core as system_under_test
+        self.sut_matches_all_examples(system_under_test)
+
+    def sut_matches_all_examples(self, system_under_test):
+        self.sut_matches_example(system_under_test, 0, "BBRKRQNN")
+        self.sut_matches_example(system_under_test, 1, "RBBKRQNN")
+
+    def sut_matches_example(self, system_under_test, seed, expected_pieces):
+        pieces = system_under_test.random_pieces(MockRandom(seed))
+        self.assertEqual(pieces, expected_pieces)
+        
     def test_imperative_shell(self):
         from chesskata import shell as system_under_test
         self.sut_satisifies_specification(system_under_test)
