@@ -6,9 +6,9 @@ def fixed_pieces(index):
     if index < 2:
         empty_squares = list(range(8))
 
-        positions = [0,1,2]
+        positions = [0,1]
         if 1 == index:
-            positions = [2,1,0]
+            positions = [2,1]
 
         for p in positions:
             empty_squares.remove(p)
