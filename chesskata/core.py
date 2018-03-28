@@ -4,11 +4,14 @@ def random_pieces(random):
 
 def fixed_pieces(index):
     if index < 2:
-        empty_squares = [3,4,5,6,7]
+        empty_squares = list(range(8))
 
         positions = [0,1,2]
         if 1 == index:
             positions = [2,1,0]
+
+        for p in positions:
+            empty_squares.remove(p)
 
         positions = positions + empty_squares
 
