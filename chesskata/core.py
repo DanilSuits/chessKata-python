@@ -8,17 +8,18 @@ def fixed_pieces(index):
         if 1 == index:
             positions = [2,1,0] + [3,4,5,6,7]
 
-        return positions2PieceNames(positions)
+
+        pieceNames = "BBRKRQNN"
+
+        crntRow = ""
+        for p in range(8):
+            crntPiece = positions.index(p)
+            crntRow = crntRow + pieceNames[ crntPiece ]
+
+        return crntRow
+
     else:
         return fixed_pieces(0)
 
 def positions2PieceNames(positions):
-
-    pieceNames = "BBRKRQNN"
-
-    crntRow = ""
-    for p in range(8):
-        crntPiece = positions.index(p)
-        crntRow = crntRow + pieceNames[ crntPiece ]
-
-    return crntRow
+    pass
