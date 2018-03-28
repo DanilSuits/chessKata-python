@@ -5,7 +5,7 @@ def random_pieces(random):
 def fixed_pieces(index):
     if index < 2:
         if 1 == index:
-            return "RBBKRQNN"
-        return "BBRKRQNN"
+            return "RBB" + "KRQNN"
+        return "BBR" + "KRQNN"
     else:
         return fixed_pieces(0)
