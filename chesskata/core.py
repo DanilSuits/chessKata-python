@@ -5,7 +5,7 @@ def random_pieces(random):
 def fixed_pieces(index):
     if index < 2:
         if 1 == index:
-            return "RBB" + "KRQNN"
+            return positions2PieceNames([2,1,0] + [3,4,5,6,7])
         return positions2PieceNames([0,1,2] + [3,4,5,6,7])
     else:
         return fixed_pieces(0)
