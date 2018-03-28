@@ -4,9 +4,11 @@ def random_pieces(random):
 
 def fixed_pieces(index):
     if index < 2:
+        positions = [0,1,2] + [3,4,5,6,7]
         if 1 == index:
-            return positions2PieceNames([2,1,0] + [3,4,5,6,7])
-        return positions2PieceNames([0,1,2] + [3,4,5,6,7])
+            positions = [2,1,0] + [3,4,5,6,7]
+
+        return positions2PieceNames(positions)
     else:
         return fixed_pieces(0)
 
