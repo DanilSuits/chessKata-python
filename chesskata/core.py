@@ -4,8 +4,6 @@ def random_pieces(random):
 
 
 def fixed_pieces(index):
-    index = 0
-    
     empty_squares = list(range(8))
 
     hints = []
