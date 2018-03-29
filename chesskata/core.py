@@ -44,4 +44,5 @@ def fixed_pieces(index):
         crnt_piece = positions.index(p)
         crnt_row = crnt_row + piece_names[crnt_piece]
 
-    return crnt_row
+    # Mirror World
+    return crnt_row[::-1]
