@@ -15,7 +15,7 @@ class RandomBoardTestCase(unittest.TestCase):
     def sut_different_seeds_give_different_boards(self, system_under_test):
         import random
         samples = set()
-        for seed in random.sample(range(0,16), 2):
+        for seed in random.sample(range(0,17), 2):
             pieces = system_under_test.random_pieces(MockRandom(seed))
             samples.add(pieces)
 
@@ -27,10 +27,10 @@ class RandomBoardTestCase(unittest.TestCase):
 
     def sut_all_seeds_give_different_boards(self, system_under_test):
         samples = set()
-        for seed in range(0,16):
+        for seed in range(0,17):
             pieces = system_under_test.random_pieces(MockRandom(seed))
             samples.add(pieces)
-        self.assertEqual(len(samples), 16)
+        self.assertEqual(len(samples), 17)
 
     def test_core_with_examples(self):
         from chesskata import core as system_under_test
@@ -44,6 +44,7 @@ class RandomBoardTestCase(unittest.TestCase):
         self.sut_matches_example(system_under_test, 4, "BRKBRQNN")
 
         self.sut_matches_example(system_under_test, 15, "RKRQNNBB")
+        self.sut_matches_example(system_under_test, 16, "BBRKQRNN")
 
     def sut_matches_example(self, system_under_test, seed, expected_pieces):
         pieces = system_under_test.random_pieces(MockRandom(seed))
