@@ -3,7 +3,7 @@ def random_pieces(random):
     return fixed_pieces(index)
 
 def fixed_pieces(index):
-    if index < 2:
+    if index < 4:
         empty_squares = list(range(8))
 
         positions = [2 * index,1]
