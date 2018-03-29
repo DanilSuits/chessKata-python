@@ -3,7 +3,7 @@ def random_pieces(random):
     return fixed_pieces(index)
 
 def fixed_pieces(index):
-    if index < 5:
+    if index < 16:
         empty_squares = list(range(8))
 
         first_bishop_hint = index % 4
