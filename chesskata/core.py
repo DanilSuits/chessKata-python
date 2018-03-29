@@ -3,7 +3,7 @@ def random_pieces(random):
     return fixed_pieces(index)
 
 def fixed_pieces(index):
-    if index < 17:
+    if index < 320:
         empty_squares = list(range(8))
 
         hints = []
