@@ -6,8 +6,13 @@ def fixed_pieces(index):
     if index < 16:
         empty_squares = list(range(8))
 
-        first_bishop_hint = index % 4
-        second_bishop_hint = index // 4
+        hints = []
+        for p in [4, 4]:
+            hints = hints + [ index % p ]
+            index = index // p
+
+        first_bishop_hint = hints[0]
+        second_bishop_hint = hints[1]
 
         positions = [2 * first_bishop_hint, 2 * second_bishop_hint + 1]
 
