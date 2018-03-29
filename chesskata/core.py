@@ -3,11 +3,11 @@ def random_pieces(random):
     return fixed_pieces(index)
 
 def fixed_pieces(index):
-    if index < 4:
+    if index < 5:
         empty_squares = list(range(8))
 
-        first_bishop_hint = index
-        second_bishop_hint = 0
+        first_bishop_hint = index % 4
+        second_bishop_hint = index // 4
 
         positions = [2 * first_bishop_hint, 2 * second_bishop_hint + 1]
 
