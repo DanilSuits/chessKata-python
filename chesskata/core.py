@@ -6,7 +6,10 @@ def fixed_pieces(index):
     if index < 4:
         empty_squares = list(range(8))
 
-        positions = [2 * index,1]
+        first_bishop_hint = index
+        second_bishop_hint = 0
+
+        positions = [2 * first_bishop_hint, 2 * second_bishop_hint + 1]
 
         for p in positions:
             empty_squares.remove(p)
