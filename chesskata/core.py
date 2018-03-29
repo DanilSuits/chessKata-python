@@ -20,12 +20,8 @@ def fixed_pieces(index):
             empty_squares.remove(p)
 
         # http://bridge.thomasoandrews.com/impossible/algorithm.html
-        
-        rkr = [0,1,2]
-
-        if hints[2] == 1:
-            rkr = [0,1,3]
-
+        import itertools
+        rkr = list(itertools.combinations(range(6),3))[hints[2]]
 
         for p in rkr:
             positions = positions + [empty_squares[p]]
