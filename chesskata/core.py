@@ -3,7 +3,10 @@ def random_pieces(random):
     return fixed_pieces(index)
 
 def fixed_pieces(index):
-    if index < 16:
+    if index < 17:
+        if index == 16:
+            return "BBRKQRNN"
+        
         empty_squares = list(range(8))
 
         hints = []
