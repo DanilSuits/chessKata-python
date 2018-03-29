@@ -3,11 +3,11 @@ def random_pieces(random):
     return fixed_pieces(index)
 
 def fixed_pieces(index):
-    if index < 320:
+    if index < 321:
         empty_squares = list(range(8))
 
         hints = []
-        for p in [4, 4, 20]:
+        for p in [4, 4, 20, 3]:
             hints = hints + [ index % p ]
             index = index // p
 
@@ -31,6 +31,9 @@ def fixed_pieces(index):
         empty_squares.remove(positions[4])
 
 
+        positions = positions + [empty_squares[hints[3]]]
+        empty_squares.remove(positions[5])
+        
         positions = positions + empty_squares
 
         pieceNames = "BBRKRQNN"
