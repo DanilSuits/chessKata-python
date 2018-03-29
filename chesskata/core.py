@@ -19,14 +19,20 @@ def fixed_pieces(index):
         for p in positions:
             empty_squares.remove(p)
 
-        if hints[2] == 1:
-            positions = positions + [empty_squares[0]]
-            positions = positions + [empty_squares[1]]
-            positions = positions + [empty_squares[3]]
+        # http://bridge.thomasoandrews.com/impossible/algorithm.html
+        
+        rkr = [0,1,2]
 
-            empty_squares.remove(positions[2])
-            empty_squares.remove(positions[3])
-            empty_squares.remove(positions[4])
+        if hints[2] == 1:
+            rkr = [0,1,3]
+
+
+        for p in rkr:
+            positions = positions + [empty_squares[p]]
+
+        empty_squares.remove(positions[2])
+        empty_squares.remove(positions[3])
+        empty_squares.remove(positions[4])
 
 
         positions = positions + empty_squares
