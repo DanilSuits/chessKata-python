@@ -4,13 +4,10 @@ def random_pieces(random):
 
 def fixed_pieces(index):
     if index < 17:
-        if index == 16:
-            return "BBRKQRNN"
-        
         empty_squares = list(range(8))
 
         hints = []
-        for p in [4, 4]:
+        for p in [4, 4, 20]:
             hints = hints + [ index % p ]
             index = index // p
 
@@ -21,6 +18,9 @@ def fixed_pieces(index):
 
         for p in positions:
             empty_squares.remove(p)
+
+        if hints[2] == 1:
+            return "BBRKQRNN"
 
         positions = positions + empty_squares
 
