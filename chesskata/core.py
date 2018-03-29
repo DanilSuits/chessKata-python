@@ -20,7 +20,14 @@ def fixed_pieces(index):
             empty_squares.remove(p)
 
         if hints[2] == 1:
-            return "BBRKQRNN"
+            positions = positions + [empty_squares[0]]
+            positions = positions + [empty_squares[1]]
+            positions = positions + [empty_squares[3]]
+
+            empty_squares.remove(positions[2])
+            empty_squares.remove(positions[3])
+            empty_squares.remove(positions[4])
+
 
         positions = positions + empty_squares
 
